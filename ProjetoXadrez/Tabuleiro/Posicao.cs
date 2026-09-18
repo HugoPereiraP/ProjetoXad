@@ -1,9 +1,9 @@
 ﻿
 
-namespace tabuleiro
+namespace ProjetoXadrez.TabuleiroXad
 {
 
-    class Posicao
+   public class Posicao
     {
 
         public int Linha { get; set; }

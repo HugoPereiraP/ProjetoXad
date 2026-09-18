@@ -1,7 +1,7 @@
 ﻿
-namespace tabuleiro
+namespace ProjetoXadrez.TabuleiroXad
 {
-     enum  Cor
+     public enum  Cor
     {
         Branca,
         Preta,
