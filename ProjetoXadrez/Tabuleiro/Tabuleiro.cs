@@ -34,7 +34,11 @@ namespace ProjetoXadrez.TabuleiroXad
 
         public void colocarPeca(Peca p, Posicao pos)
         {
-            pecas[pos.Linha, pos.Coluna] = p;
+            if (existePeca(pos)) {
+                throw new TabuleiroException(" Já Existe uma Peça nessa posição"); 
+            }
+            else 
+                pecas[pos.Linha, pos.Coluna] = p;
             p.posicao = pos;
         }
 
