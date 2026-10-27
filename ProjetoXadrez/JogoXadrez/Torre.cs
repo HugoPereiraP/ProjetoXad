@@ -9,7 +9,7 @@ namespace ProjetoXadrez.JogoXadrez
 {
     public class Torre : Peca
     {
-        public Torre(Cor cor, Tabuleiro tab) : base(cor, tab)
+        public Torre(Tabuleiro tab, Cor cor) : base(tab, cor)
         {
         }
 
@@ -17,5 +17,69 @@ namespace ProjetoXadrez.JogoXadrez
         {
             return "T";
         }
+        private bool PodeMover(Posicao pos)
+        {
+            Peca p = tab.peca(pos);
+            // Move se a casa estiver vazia OU se for uma peça adversária
+            return p == null || p.cor != cor;
+        }
+
+        public override bool[,] MovimentosPossiveis()
+        {
+            bool[,] mat = new bool[tab.Linhas, tab.Colunas];
+
+            Posicao pos = new Posicao(0, 0);
+
+            //acima
+            pos.DefinirValores(posicao.Linha - 1, posicao.Coluna);
+            while (tab.posicaoValida(pos) && PodeMover(pos))
+            {
+                mat[pos.Linha,pos.Coluna] = true;
+                if (tab.peca(pos) != null && tab.peca(pos).cor != cor) {
+                    break;
+                }
+                pos.Linha = pos.Linha - 1;
+            }
+
+            //abaixo 
+            pos.DefinirValores(posicao.Linha + 1, posicao.Coluna);
+            while (tab.posicaoValida(pos) && PodeMover(pos))
+            {
+                mat[pos.Linha, pos.Coluna] = true;
+                if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
+                {
+                    break;
+                }
+                pos.Linha = pos.Linha + 1;
+            }
+
+            //direita 
+            pos.DefinirValores(posicao.Linha , posicao.Coluna + 1);
+            while (tab.posicaoValida(pos) && PodeMover(pos))
+            {
+                mat[pos.Linha, pos.Coluna] = true;
+                if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
+                {
+                    break;
+                }
+                pos.Coluna = pos.Coluna + 1;
+            }
+
+            //esquerda 
+            pos.DefinirValores(posicao.Linha, posicao.Coluna - 1);
+            while (tab.posicaoValida(pos) && PodeMover(pos))
+            {
+                mat[pos.Linha, pos.Coluna] = true;
+                if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
+                {
+                    break;
+                }
+                pos.Coluna = pos.Coluna - 1;
+            }
+
+            return mat;
+        }
+
+
     }
 }
