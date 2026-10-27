@@ -28,7 +28,7 @@ namespace ProjetoXadrez.TabuleiroXad
         public bool existePeca(Posicao pos) 
         { 
             validaPosicao(pos);
-            return peca(pos) != null;
+            return peca(pos) != null; 
         }
 
 
@@ -42,6 +42,15 @@ namespace ProjetoXadrez.TabuleiroXad
             p.posicao = pos;
         }
 
+        public Peca RetirarPeca( Posicao pos) {
+            if (peca(pos) == null) { 
+                return null;   
+            }
+            Peca aux = peca(pos);
+            aux.posicao = null;
+            pecas[pos.Linha, pos.Coluna] = null;
+            return aux;
+        }
         public bool posicaoValida(Posicao pos)
         {
             if (pos.Linha < 0 ||
@@ -54,6 +63,8 @@ namespace ProjetoXadrez.TabuleiroXad
 
             return true;
         }
+
+
 
         public void validaPosicao(Posicao pos)
         {

@@ -1,5 +1,6 @@
 ﻿using ProjetoXadrez.TabuleiroXad;
 
+
 namespace ProjetoXadrez.JogoXadrez
 {
     public class PosicaoXadrez
@@ -24,5 +25,7 @@ namespace ProjetoXadrez.JogoXadrez
         {
             return "" + Coluna + Linha;
         }
+
+        
     }
 }

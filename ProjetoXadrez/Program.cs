@@ -3,6 +3,7 @@ using System.Dynamic;
 using ProjetoXadrez.JogoXadrez;
 using ProjetoXadrez.TabuleiroXad;
 
+
 namespace ProjetoXadrez
 {
     class Program   {
@@ -10,15 +11,43 @@ namespace ProjetoXadrez
         {
             try
             {
-                Tabuleiro tab = new Tabuleiro(8, 8);
+                PartidaDeXadrez partida = new PartidaDeXadrez();
+                while (!partida.terminada)
+                {
+                    try { 
+                    Console.Clear();
+                        Tela.ImrpmimirPartida(partida);
 
-                tab.colocarPeca(new Torre(Cor.Preta, tab), new Posicao(0, 0));
-                tab.colocarPeca(new Torre(Cor.Preta, tab), new Posicao(1, 3));
-                tab.colocarPeca(new Rei(Cor.Branca, tab), new Posicao(4, 2));
-                Tela.imprimitabuleiro(tab);
+                    Console.Write("digite a posicao de origem : ");
+                    Posicao origem = Tela.LerPosicaoXadrez().toPosicao();
+                    partida.ValidarPosicaoDeOrigem(origem);
 
-                Console.ReadLine();
+                    bool[,] posicaoPossiveis = partida.tab.peca(origem).MovimentosPossiveis();
+
+                    Console.Clear();
+                    Tela.imprimitabuleiro(partida.tab,posicaoPossiveis);
+
+
+                    Console.WriteLine();
+                    Console.Write("digite a posição de destino : ");
+                    Posicao destino = Tela.LerPosicaoXadrez().toPosicao();
+                        partida.ValidarPosicaoDeDestino(origem, destino);
+                    partida.RealizaJogada(origem, destino);  
+
+                    }
+                    catch (TabuleiroException te) 
+                    { 
+                        Console.WriteLine(te.Message);
+                        Console.ReadLine();
+
+                    
+                    }
+                }
+
+
+                Tela.imprimitabuleiro(partida.tab);
             }
+            
             catch (TabuleiroException te )
             {
                 Console.WriteLine(te.Message);  
