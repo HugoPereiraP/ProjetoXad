@@ -2,32 +2,32 @@
 
 Projeto de **Xadrez desenvolvido em C#**, criado com o objetivo de praticar conceitos de **Programação Orientada a Objetos (POO)** e aprofundar conhecimentos na linguagem C#.
 
-O projeto implementa um tabuleiro de xadrez executado pelo terminal, utilizando classes para representar o tabuleiro, peças, posições e regras do jogo.
+O projeto implementa um jogo completo de xadrez executado pelo terminal, utilizando classes para representar o tabuleiro, peças, posições e todas as regras oficiais do jogo.
 
 ---
 
 ## 🎯 Objetivo
 
-Desenvolver um jogo de xadrez utilizando C#, aplicando conceitos importantes de orientação a objetos, como:
+Desenvolver um jogo de xadrez funcional utilizando C#, aplicando conceitos fundamentais de orientação a objetos e boas práticas de desenvolvimento, tais como:
 
-* Classes e objetos
-* Encapsulamento
-* Herança
-* Polimorfismo
-* Construtores
-* Enumerações
-* Matrizes
-* Tratamento de exceções
-* Organização utilizando namespaces
+- Classes e objetos
+- Encapsulamento
+- Herança
+- Polimorfismo
+- Construtores
+- Enumerações
+- Matrizes
+- Tratamento de exceções
+- Organização utilizando namespaces
 
 ---
 
 ## 🛠️ Tecnologias
 
-![C#](https://img.shields.io/badge/C%23-512BD4?style=for-the-badge\&logo=csharp\&logoColor=white)
-![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge\&logo=dotnet\&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge\&logo=git\&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge\&logo=github\&logoColor=white)
+![C#](https://img.shields.io/badge/C%23-512BD4?style=for-the-badge&logo=csharp&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 
 ---
 
@@ -37,180 +37,21 @@ Desenvolver um jogo de xadrez utilizando C#, aplicando conceitos importantes de 
 ProjetoXadrez/
 │
 ├── JogoXadrez/
+│   ├── Bispo.cs
+│   ├── Cavalo.cs
+│   ├── Dama.cs
 │   ├── PartidaDeXadrez.cs
+│   ├── Peao.cs
+│   ├── PosicaoXadrez.cs
 │   ├── Rei.cs
 │   └── Torre.cs
 │
 ├── Tabuleiro/
-│   ├── Tabuleiro.cs
-│   ├── TabuleiroException.cs
+│   ├── Cor.cs
 │   ├── Peca.cs
 │   ├── Posicao.cs
-│   └── Cor.cs
+│   ├── Tabuleiro.cs
+│   └── TabuleiroException.cs
 │
 ├── Tela.cs
 └── Program.cs
-```
-
-### 📌 Principais classes
-
-**`Tabuleiro`**
-Responsável por armazenar e controlar as peças presentes no tabuleiro.
-
-**`Peca`**
-Classe base utilizada para representar as peças do jogo.
-
-**`Posicao`**
-Representa uma posição através de linha e coluna.
-
-**`Rei`** 👑
-Representa a peça Rei e suas movimentações.
-
-**`Torre`** 🏰
-Representa a Torre e suas movimentações.
-
-**`PartidaDeXadrez`**
-Responsável por controlar o funcionamento da partida.
-
-**`TabuleiroException`**
-Exceção personalizada utilizada para tratar operações inválidas no tabuleiro.
-
-**`Tela`**
-Responsável pela exibição do tabuleiro e das informações da partida no terminal.
-
----
-
-## ♟️ Exemplo do Tabuleiro
-
-```text
-8  T C B D R B C T
-7  P P P P P P P P
-6  - - - - - - - -
-5  - - - - - - - -
-4  - - - - - - - -
-3  - - - - - - - -
-2  P P P P P P P P
-1  T C B D R B C T
-
-   a b c d e f g h
-```
-
----
-
-## 🚀 Como executar
-
-### 1. Clone o repositório
-
-```bash
-git clone https://github.com/HugoPereiraP/ProjetoXad.git
-```
-
-### 2. Entre na pasta
-
-```bash
-cd ProjetoXad
-```
-
-### 3. Execute o projeto
-
-```bash
-dotnet run
-```
-
-Também é possível abrir a solução diretamente no **Visual Studio 2022** e executar utilizando:
-
-```text
-Ctrl + F5
-```
-
----
-
-## 🧠 Conceitos de POO utilizados
-
-### Herança
-
-As peças específicas podem herdar características da classe `Peca`.
-
-```csharp
-class Torre : Peca
-{
-}
-```
-
-### Encapsulamento
-
-O tabuleiro mantém internamente uma matriz contendo suas peças.
-
-```csharp
-private Peca[,] pecas;
-```
-
-### Exceções personalizadas
-
-Operações inválidas podem gerar uma `TabuleiroException`.
-
-```csharp
-if (!posicaoValida(pos))
-{
-    throw new TabuleiroException("Posição inválida");
-}
-```
-
----
-
-## 🚧 Status do Projeto
-
-🟡 **Em desenvolvimento**
-
-Funcionalidades implementadas e planejadas:
-
-* [x] Criação do tabuleiro
-* [x] Representação de posições
-* [x] Inserção de peças
-* [x] Validação de posições
-* [x] Exceções personalizadas
-* [x] Implementação da Torre
-* [x] Implementação do Rei
-* [ ] Implementação do Bispo
-* [ ] Implementação do Cavalo
-* [ ] Implementação da Rainha
-* [ ] Implementação do Peão
-* [ ] Validação completa dos movimentos
-* [ ] Sistema de turnos
-* [ ] Xeque
-* [ ] Xeque-mate
-* [ ] Roque
-* [ ] En passant
-* [ ] Promoção do peão
-
----
-
-## 📚 Aprendizados
-
-Durante o desenvolvimento deste projeto são praticados conceitos fundamentais de desenvolvimento em C#, principalmente:
-
-* Modelagem orientada a objetos
-* Separação de responsabilidades
-* Manipulação de matrizes
-* Tratamento de erros
-* Herança e polimorfismo
-* Organização de projetos C#
-* Versionamento utilizando Git e GitHub
-
----
-
-## 👨‍💻 Autor
-
-**Hugo Pereira**
-
-Desenvolvido como projeto de estudo de **C# e Programação Orientada a Objetos**.
-
----
-
-<p align="center">
-  ♟️ <strong>Projeto Xadrez</strong> ♟️
-</p>
-
-<p align="center">
-  Desenvolvido com C# e .NET
-</p>
