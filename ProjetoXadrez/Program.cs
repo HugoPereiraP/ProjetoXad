@@ -44,7 +44,7 @@ namespace ProjetoXadrez
                     }
                 }
 
-
+                Console.Clear();
                 Tela.imprimitabuleiro(partida.tab);
             }
             
@@ -55,4 +55,4 @@ namespace ProjetoXadrez
          
         }
     }
-}
+} 

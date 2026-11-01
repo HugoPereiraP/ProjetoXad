@@ -29,7 +29,22 @@ public  class Tela
         ImrpimirPecasCapturadas(partida);
         Console.WriteLine();
         Console.WriteLine("Turno : " + partida.Turno);
-        Console.WriteLine("Aguardando jogada " + partida.JogadorAtual);
+
+
+        if (!partida.terminada)
+        {
+            Console.WriteLine("Aguardando jogada " + partida.JogadorAtual);
+
+            if (partida.xeque)
+            {
+                Console.WriteLine("Xeque!");
+            }
+        }
+        else {
+            Console.WriteLine("Xeque mate!");
+            Console.WriteLine("Partida venciada pelo jogar " + partida.JogadorAtual);
+        }
+     
     }
 
     public static void ImrpimirPecasCapturadas(PartidaDeXadrez partida) {
